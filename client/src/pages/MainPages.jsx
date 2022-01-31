@@ -19,6 +19,7 @@ export default function MainPages() {
         ></Route>
         <Route element={<WritePost />} path="/write"></Route>
         <Route element={<UserInfo />} path="/user-info/:id"></Route>
+        <Route element={<Notfound />} path="*"></Route>
       </Routes>
     </Layout>
   );

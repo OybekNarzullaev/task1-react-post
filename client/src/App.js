@@ -14,6 +14,7 @@ function App() {
             element={userInfo ? <MainPages /> : <Login />}
             path="/*"
           ></Route>
+          <Route element={<Notfound />} path="*"></Route>
         </Routes>
       </Router>
     </div>
