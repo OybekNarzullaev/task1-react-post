@@ -73,7 +73,7 @@ export default function UserInfo() {
             </div>
             <div>
               <YMaps>
-                <div className="userInfoItem">
+                <div className="userInfoItem mapScreen">
                   <p>
                     <b>Address</b>
                   </p>

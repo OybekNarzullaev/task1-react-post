@@ -35,14 +35,17 @@ export default function PostItem({ post, showAuthor }) {
       }
       style={{ width: "350px", margin: "5px" }}
     >
-      <p className="desc">{post.desc}</p>{" "}
-      {showAuthor && (
-        <Link to={`/user-info/${author._id}`}>
-          <p className="edit">
-            <i>Автор: {author.name}</i>
-          </p>
-        </Link>
-      )}
+      <div style={{ height: "120px" }}>
+        <p className="desc">{post.desc}</p>{" "}
+        {showAuthor && (
+          <Link to={`/user-info/${author._id}`}>
+            <p className="edit">
+              <i>Автор: {author.name}</i>
+            </p>
+          </Link>
+        )}
+      </div>
+
       <Link to={`/post/${author.name}/${post._id}`}>
         <Button type="primary" className="button" icon={<EyeOutlined />}>
           See more
