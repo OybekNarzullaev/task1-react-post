@@ -10,8 +10,8 @@ import {
   USER_POSTS_SUCCESS,
   USER_POSTS_FAIL,
 } from "../constants/userConstants";
-import { getPostsByUserAPI, userInfoAPI, userLoginAPI } from "../server/api";
-import { onFinishFailed, openFinishSucces } from "../components/helper";
+import { getPostsByUserAPI, userInfoAPI, userLoginAPI } from "../../server/api";
+import { onFinishFailed, openFinishSucces } from "../../components/helper";
 
 export const signin = (email) => async (dispatch) => {
   dispatch({

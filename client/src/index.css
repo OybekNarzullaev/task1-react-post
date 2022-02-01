@@ -79,6 +79,10 @@ code {
 .submenu {
   display: none;
 }
+/*footer*/
+.footer {
+  text-align: center;
+}
 /* posts */
 .loadingScreen {
   height: 90vh;

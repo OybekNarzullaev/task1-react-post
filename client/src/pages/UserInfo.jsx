@@ -11,7 +11,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
-import { detailsUser, listUserPosts } from "../actions/userActions";
+import { detailsUser, listUserPosts } from "../redux/actions/userActions";
 import PostItem from "../components/PostItem";
 
 export default function UserInfo() {

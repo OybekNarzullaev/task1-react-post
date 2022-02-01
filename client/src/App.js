@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import MainPages from "./pages/MainPages";
 
@@ -8,15 +8,13 @@ function App() {
   const { userInfo } = userSignin;
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            element={userInfo ? <MainPages /> : <Login />}
-            path="/*"
-          ></Route>
-          <Route element={<Notfound />} path="*"></Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route
+          element={userInfo ? <MainPages /> : <Login />}
+          path="/*"
+          exact
+        ></Route>
+      </Routes>
     </div>
   );
 }

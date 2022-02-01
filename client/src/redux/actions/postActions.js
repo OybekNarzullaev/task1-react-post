@@ -11,14 +11,15 @@ import {
   POST_CREATE_REQUEST,
   POST_CREATE_SUCCESS,
   POST_CREATE_FAIL,
+  POST_CREATE_RESET,
 } from "../constants/postConstants";
 import {
   getPostAPI,
   getPostsAPI,
   editPostAPI,
   createPostAPI,
-} from "../server/api";
-import { onFinishFailed, openFinishSucces } from "../components/helper";
+} from "../../server/api";
+import { onFinishFailed, openFinishSucces } from "../../components/helper";
 
 export const listPosts = () => async (dispatch) => {
   dispatch({
@@ -27,6 +28,7 @@ export const listPosts = () => async (dispatch) => {
   try {
     const { data } = await getPostsAPI();
     dispatch({ type: POST_LIST_SUCCESS, payload: data });
+    dispatch({ type: POST_CREATE_RESET });
   } catch (error) {
     dispatch({ type: POST_LIST_FAIL, payload: error.message });
     onFinishFailed(error.message);
@@ -69,7 +71,7 @@ export const createPost = (title, desc, authorId) => async (dispatch) => {
       type: POST_CREATE_SUCCESS,
       payload: data,
     });
-
+    dispatch(listPosts());
     openFinishSucces("");
   } catch (error) {
     dispatch({
@@ -97,6 +99,8 @@ export const editPost = (postId, title, desc) => async (dispatch) => {
       type: POST_EDIT_SUCCESS,
       payload: data,
     });
+    dispatch(detailsPost(postId));
+    dispatch(listPosts());
     openFinishSucces("");
   } catch (error) {
     dispatch({

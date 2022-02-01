@@ -7,15 +7,15 @@ import { onFinishFailed } from "./helper";
 
 export default function PostItem({ post, showAuthor }) {
   const [author, setAuthor] = useState("");
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchAuthor = async () => {
       try {
         const { data } = await userInfoAPI(post.authorId);
         setAuthor(data);
-        setLoading(false);
+        //setLoading(false);
       } catch (error) {
-        setLoading(false);
+        //setLoading(false);
         onFinishFailed(
           error.response && error.response.data.message
             ? error.response.data.message
@@ -27,7 +27,7 @@ export default function PostItem({ post, showAuthor }) {
   }, [post.authorId]);
   return (
     <Card
-      loading={loading}
+      //loading={loading}
       title={
         <>
           <PushpinOutlined /> {post.title}
@@ -40,13 +40,13 @@ export default function PostItem({ post, showAuthor }) {
         {showAuthor && (
           <Link to={`/user-info/${author._id}`}>
             <p className="edit">
-              <i>Автор: {author.name}</i>
+              <i>Автор: {author ? author.name : "Загрузка..."}</i>
             </p>
           </Link>
         )}
       </div>
 
-      <Link to={`/post/${author.name}/${post._id}`}>
+      <Link to={`/post/${author?.name}/${post._id}`}>
         <Button type="primary" className="button" icon={<EyeOutlined />}>
           See more
         </Button>

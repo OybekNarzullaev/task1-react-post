@@ -9,7 +9,7 @@ import Layout from "antd/lib/layout/layout";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { detailsPost, editPost } from "../actions/postActions";
+import { detailsPost, editPost } from "../redux/actions/postActions";
 
 export default function SinglePostPage() {
   // url params
@@ -38,7 +38,7 @@ export default function SinglePostPage() {
     return () => {
       abortController.abort();
     };
-  }, [dispatch, id, loadingEditPost]);
+  }, [dispatch, id]);
 
   return (
     <Layout className="conatainerFuild">

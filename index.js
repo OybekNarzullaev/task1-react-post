@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 const compression = require("compression");
+const path = require("path");
 
 //connect to mongoDB process.env.MONGO_URL ||
 const URL = process.env.MONGO_URL || "mongodb://localhost/postApp";

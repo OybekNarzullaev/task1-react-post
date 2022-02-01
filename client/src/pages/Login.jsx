@@ -3,10 +3,12 @@ import { Button, Card, Input, Form, Space } from "antd";
 import Layout from "antd/lib/layout/layout";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signin } from "../actions/userActions";
+import { useNavigate } from "react-router-dom";
+import { signin } from "../redux/actions/userActions";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading } = userSignin;
@@ -16,7 +18,13 @@ export default function Login() {
     dispatch(signin(email));
   };
 
-  useEffect(() => {}, [userInfo]);
+  const navigator = () => {
+    navigate("/");
+  };
+
+  useEffect(() => {
+    navigator();
+  }, [userInfo]);
 
   return (
     <Layout className="loginPage">

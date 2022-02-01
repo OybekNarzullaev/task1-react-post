@@ -4,8 +4,7 @@ import Layout from "antd/lib/layout/layout";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { createPost } from "../actions/postActions";
+import { createPost, listPosts } from "../redux/actions/postActions";
 
 export default function WritePost() {
   const dispatch = useDispatch();
@@ -17,13 +16,7 @@ export default function WritePost() {
     dispatch(createPost(values["title"], values["desc"], user._id));
   };
 
-  useEffect(() => {
-    const abortController = new AbortController();
-    return () => {
-      abortController.abort();
-    };
-  }, [dispatch]);
-
+  useEffect(() => {}, [dispatch]);
   return (
     <Layout className="conatainerFuild">
       <Card className="writePostCard" title="Пост написания">

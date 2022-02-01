@@ -1,4 +1,5 @@
-import React from "react";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 export default function Notfound() {
   return (
@@ -13,6 +14,9 @@ export default function Notfound() {
     >
       <h1 style={{ fontSize: "300%" }}>404</h1>
       <h3>Page not found</h3>
+      <Link to="/">
+        <Button type="primary">Go to Home</Button>
+      </Link>
     </div>
   );
 }

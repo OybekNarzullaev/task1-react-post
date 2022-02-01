@@ -1,6 +1,7 @@
 import {
   POST_CREATE_FAIL,
   POST_CREATE_REQUEST,
+  POST_CREATE_RESET,
   POST_CREATE_SUCCESS,
   POST_DETAIL_FAIL,
   POST_DETAIL_REQUEST,
@@ -53,9 +54,15 @@ export const createPostReducer = (
     case POST_CREATE_REQUEST:
       return { createdPost: null, loadingPostCreate: true };
     case POST_CREATE_SUCCESS:
-      return { loadingPostCreate: false, createdPost: action.payload };
+      return {
+        loadingPostCreate: false,
+        createdPost: action.payload,
+      };
     case POST_CREATE_FAIL:
       return { loadingPostCreate: false, error: action.payload };
+    case POST_CREATE_RESET: {
+      return { loadingPostCreate: false, createdPost: null };
+    }
     default:
       return state;
   }

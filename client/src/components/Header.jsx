@@ -8,7 +8,7 @@ import {
   LogoutOutlined,
   MenuOutlined,
 } from "@ant-design/icons/lib/icons";
-import { signout } from "../actions/userActions";
+import { signout } from "../redux/actions/userActions";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 export default function Header() {
